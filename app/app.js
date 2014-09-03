@@ -7,6 +7,21 @@
     {
         $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);
 
+        $routeProvider.when('/', {
+            templateUrl: 'brainCandyList.html',
+            controller: 'BrainCandyListCtrl as candyList'
+        });
+        $routeProvider.when('/details/:id', {
+            templateUrl: 'brainCandyDetails.html',
+            controller: 'BrainCandyDetailsCtrl as candyDetails'
+        });
+        $routeProvider.when('/new', {
+            templateUrl: 'brainCandyDetails.html',
+            controller: 'BrainCandyDetailsCtrl as candyDetails'
+        });
+        $routeProvider.otherwise({
+            redirectTo: '/'
+        });
     });
 
     module.run(function ($httpBackend)
@@ -46,7 +61,7 @@
             return [200, candies];
         });
 
-        $httpBackend.whencandy(/\/api\/candy/).respond(function (method, url, candyData)
+        $httpBackend.whenPOST(/\/api\/candy/).respond(function (method, url, candyData)
         {
             candyData = JSON.parse(candyData);
 

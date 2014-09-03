@@ -1,0 +1,18 @@
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Factory</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in candyList.list">
+        <th>{{row.id}}</th>
+        <th>{{row.name}}</th>
+        <th>{{row.factory}}</th>
+        <th><a href="/#/details/{{row.id}}">Edit</a></th>
+    </tr>
+    <th><a href="/#/new">New</a></th>
+    </tbody>
+</table>

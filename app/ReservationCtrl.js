@@ -3,6 +3,7 @@
     function ReservationCtrl($filter,$scope) {
         var ctrl = this;
 
+
         ctrl.list = {
             selectRefreshment: {value: ''},
             selectZone: {value: ''}
@@ -39,7 +40,16 @@
                 date: ctrl.list.date,
                 comments: ctrl.list.comments
             };
-        }
+        };
+        var watchGroup = 'reservation.list.firstName + reservation.list.lastName + reservation.list.email + reservation.list.selectRefreshment + reservation.list.selectZone + reservation.list.vip + reservation.list.date + reservation.list.comments';
+        $scope.$watch(watchGroup, function () {
+            ctrl.save();
+        });
+
+        $scope.$watch('reservation.list.selectZone', function () {
+            ctrl.save();
+        })
+
     }
 
     var module = angular.module('exerciseApp', ["xeditable"]);

@@ -1,6 +1,7 @@
 <h4>This is the typeahead exercise</h4>
 
-<input type="text" ng-model="selected" class="form-control" >
+<input type="text" ng-model="selected" class="form-control" typeahead="list.name for list in typeahead.list | limitTo:8"
+       typeahead-on-select="typeahead.selectContact($item, $model, $label)" ng-click="typeahead.getContacts()">
 <!-- need to add 2 attributes to input above -->
 
 <hr/>
@@ -14,7 +15,6 @@
         <li>Nice name: {{typeahead.selected.nice_name}}</li>
     </ul>
 </div>
-
 <div ng-if="typeahead.selected==undefined">
     <p>No item selected.</p>
 </div>

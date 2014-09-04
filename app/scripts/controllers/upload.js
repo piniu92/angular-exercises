@@ -15,12 +15,14 @@ angular.module('ngflowApp').controller('uploadCtrl', function ($scope) {
 
     this.startUpload = function(flow,files){
 	// write function body
+        flow.upload();
     }
 
     this.fileSuccess = function(file,message){
 	// write function body
+        this.image = JSON.parse(message);
     }
-
+    console.log(this.image);
     this.flowComplete=function(){
         this.flowCompleteFlag = true;
     }

@@ -5,7 +5,7 @@
         PostDAO.query().then(function(data){
             ctrl.posts = data;
         });
-        console.log(ctrl.posts);
+
     }
 
     var module = angular.module("exerciseApp");

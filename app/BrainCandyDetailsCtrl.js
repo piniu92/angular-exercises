@@ -15,7 +15,6 @@
         };
 
         ctrl.deleteCandy = function () {
-            console.log($routeParams.id);
             CandyDAO.delete($routeParams.id);
         };
 

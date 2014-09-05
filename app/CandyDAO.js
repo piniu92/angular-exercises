@@ -5,10 +5,8 @@
         var api = $resource('/api/candy/:a', null, {
             query: {
                 isArray: false
-            },
-            save: {
-                method: 'POST'
             }
+
         });
         return {
             query: function () {

@@ -7,7 +7,6 @@
         var ctrl = this;
         CandyDAO.query().then(function (data) {
             ctrl.list = data;
-
         });
 
 

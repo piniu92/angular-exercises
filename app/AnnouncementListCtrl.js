@@ -3,10 +3,8 @@
     function AnnouncementListCtrl(AnnouncementDAO) {
         var ctrl = this;
         AnnouncementDAO.query().then(function (data) {
-            console.log(data);
-            ctrl.anon = data;
+            ctrl.posts = data;
         });
-        console.log(ctrl.anon);
 
     }
 

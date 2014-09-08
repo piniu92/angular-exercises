@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    function ReservationCtrl($filter,$scope) {
+    function ReservationCtrl($scope) {
         var ctrl = this;
 
 
@@ -29,7 +29,7 @@
 
         ctrl.formData = {};
 
-        this.save = function(){
+        this.save = function () {
             ctrl.formData = {
                 firstName: ctrl.list.firstName,
                 lastName: ctrl.list.lastName,
@@ -49,9 +49,8 @@
         }, true);
 
 
-
     }
 
     var module = angular.module('exerciseApp', ["xeditable"]);
-    module.controller('ReservationCtrl', ['$filter','$scope', ReservationCtrl]);
+    module.controller('ReservationCtrl', ['$scope', ReservationCtrl]);
 })();

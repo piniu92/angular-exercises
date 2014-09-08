@@ -2,13 +2,13 @@
     'use strict';
     function TranslateCtrl(gettext, gettextCatalog) {
         var ctrl = this;
-        var pl = gettext('polski');
-        var en = gettext('angielski');
-        var de = gettext('niemiecki');
+        gettext('polski');
+        gettext('angielski');
+        gettext('niemiecki');
         ctrl.languages = [
-            {value: 'pl', name: pl},
-            {value: 'en', name: en},
-            {value: 'de', name: de}
+            {value: 'pl', name: 'polski'},
+            {value: 'en', name: 'angielski'},
+            {value: 'de', name: 'niemiecki'}
         ];
 
         ctrl.changeLanguage = function (lang) {

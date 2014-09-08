@@ -13,7 +13,7 @@
             <div class="col-xs-6 col-md-4 text-right">
                 <div class="btn-group">
                     <button class="btn btn-primary" ng-repeat="lang in translate.languages"
-                            ng-click="translate.changeLanguage(lang.value)">{{lang.name}}
+                            ng-click="translate.changeLanguage(lang.value)">{{lang.name | translate}}
                     </button>
                 </div>
             </div>

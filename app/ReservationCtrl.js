@@ -5,8 +5,8 @@
 
 
         ctrl.list = {
-            selectRefreshment: {value: ''},
-            selectZone: {value: ''}
+            selectRefreshment: '',
+            selectZone: ''
         };
 
         ctrl.refreshments = [
@@ -41,14 +41,14 @@
                 comments: ctrl.list.comments
             };
         };
-        var watchGroup = 'reservation.list.firstName + reservation.list.lastName + reservation.list.email + reservation.list.selectRefreshment + reservation.list.selectZone + reservation.list.vip + reservation.list.date + reservation.list.comments';
-        $scope.$watch(watchGroup, function () {
-            ctrl.save();
-        });
 
-        $scope.$watch('reservation.list.selectZone', function () {
+        $scope.$watch(function () {
+            return ctrl.list;
+        }, function () {
             ctrl.save();
-        })
+        }, true);
+
+
 
     }
 

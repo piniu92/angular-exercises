@@ -104,7 +104,7 @@
         <p>You are {{reservation.formData.firstName || 'empty' }} {{reservation.formData.lastName || 'empty'}}
             with mail: {{reservation.formData.email || 'empty'}}.</p>
 
-        <p>You set refreshment to: {{reservation.refreshments[reservation.formData.selectRefreshment.value-1].status ||
+        <p>You set refreshment to: {{reservation.refreshments[reservation.formData.selectRefreshment-1].status ||
             'not set'}}.</p>
 
         <p>Your zone is {{reservation.zones[reservation.formData.selectZone.value -1].color || 'not set'}}
@@ -118,6 +118,7 @@
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="ReservationCtrl.js"></script>
 </body>
 </html>

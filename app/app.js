@@ -53,6 +53,46 @@
                 return true;
             });
 
+        $httpBackend.whenGET('/api/product').respond(function () {
+            return [200, products];
+        });
 
+        $httpBackend.whenGET(/\/api\/product\/(\d+)/).respond(function (method, url) {
+            var match = /\/api\/product\/(\d+)/.exec(url);
+            return [200, products[parseInt(match[1])]];
+        });
+
+        $httpBackend.whenPOST('/api/product').respond(function (method, url, data) {
+            data = JSON.parse(data);
+
+            if (products[data.id]) {
+                products[data.id].product = data.product;
+                products[data.id].price = data.price;
+            } else {
+                data.id = sequence++;
+                products[data.id] = data;
+            }
+            console.log(products[data.id]);
+            return [200];
+        });
+
+        $httpBackend.whenDELETE(/\/api\/product\/(\d+)/).respond(function (method, url) {
+            var match = /\/api\/product\/(\d+)/.exec(url);
+            if (match) {
+                var id = parseInt(match[1], 10)
+                delete products[id];
+                return [200];
+            } else {
+                return [404];
+            }
+        });
+
+        $httpBackend.whenPUT('/api/product/new').respond(function (method, url, data) {
+            data = JSON.parse(data)
+            data.id = sequence++;
+            products[data.id] = data;
+        });
+
+        $httpBackend.whenGET(/.*\.html/).passThrough();
     });
 })();
